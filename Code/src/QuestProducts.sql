@@ -2,12 +2,12 @@ DROP TABLE   QuestProducts  ;
  CREATE TABLE   QuestProducts
    (
    productID   int   NOT NULL,
-   ProductName    varchar(100)    NOT NULL,
-   Description    varchar(500)    NOT NULL,
-   ImageURL    varchar(500)    NOT NULL,
+   ProductName    varchar(200)    NOT NULL,
+   Description    varchar(600)    NOT NULL,
+   ImageURL    varchar(600)    NOT NULL,
    DollarPrice  varchar(20)     NOT NULL,
-   PRIMARY KEY ( productID )  
-   ) 
+   PRIMARY KEY ( productID )
+   )
    CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 /*INSERT INTO QuestProducts VALUES (1, 'Acer Aspire R 15 2-in-1 Laptop, 15.6" Full HD Touch, 7th Gen Intel Core i7, GeForce 940MX, , 12GB DDR4, 256GB SSD, R5-571TG-7229', 'Acer R5-571TG-7229 comes with these high level specs: 7th Generation Intel Core i7-7500U Processor 2.7GHz with Turbo Boost Technology up to 3.5GHz (4MB L3 cache), Windows 10 Home, 15.6" Full HD (1920 x 1080) widescreen LED-backlit IPS display - Multi-touch screen, supporting 10-finger touch, NVIDIA GeForce 940MX with 2GB of dedicated GDDR5 VRAM, 12GB DDR4 Dual Channel Memory, 256GB SSD, Secure Digital (SD) card reader, Acer True Harmony High-Performance Sound System, Two built-in stereo speakers with subwoofer and built-in dual microphones, 802.11ac Wi-Fi featuring 2x2 MU-MIMO technology (Dual-Band 2.4GHz and 5GHz), Bluetooth 4.0, HD Webcam (1280 x 720), Acer Fingerprint Reader supporting Windows Hello, 1 - USB 3.1 (Type C) port (Gen 1 up to 5 Gbps), 2 - USB 3.0 Ports (One with Power-off Charging), 1 - USB 2.0 port, 1 - HDMI port with HDCP support, 4-cell Li-Ion Battery (3220 mAh), Up to 9-hours Battery Life, 4.74 lbs. | 2.15 kg (system unit only), Microsoft Signature (NX.GP7AA.001).', 'https://images-na.ssl-images-amazon.com/images/I/71Tl%2BD5RcNL._SL1500_.jpg', '799.99');
@@ -15,6 +15,55 @@ DROP TABLE   QuestProducts  ;
 INSERT INTO QuestProducts VALUES (1,'Acer Aspire Laptop','15.6" Full HD Widescreen Display','https://images-na.ssl-images-amazon.com/images/I/71Tl%2BD5RcNL._SL1500_.jpg','$799.99');
 INSERT INTO QuestProducts VALUES (2,'Acer Aspire Notebook','15.6" Full HD Widescreen Display','https://images-na.ssl-images-amazon.com/images/I/61Yeir0uhIL._SL1322_.jpg','$349.99');
 INSERT INTO QuestProducts VALUES (3,'ASUS Android Tablet','8" Touch Screen','https://images-na.ssl-images-amazon.com/images/I/41JYmgGBhRL.jpg','$126.00');
+INSERT INTO QuestProducts VALUES (4,'Apple iPad','Processor: 1.65 GHz RAM: 128 GB (2017 Newest Model) (Certified Refurbished)','https://images-na.ssl-images-amazon.com/images/I/61fCSQw997L._SL1000_.jpg','$359.99');
+INSERT INTO QuestProducts VALUES (5, 'Apple iPhone', '32GB - Rose Gold, 3D Touch (Certified Refurbished)','https://images-na.ssl-images-amazon.com/images/I/71x3e0x%2BM2L._SL1382_.jpg','$406.50');
+INSERT INTO QuestProducts VALUES (6, 'Samson Galaxy Phone','Worlds first Infinity Screen 64 GB Unlocked International Version (Midnight Black)','https://images-na.ssl-images-amazon.com/images/I/61FgyIm6rLL._SL1383_.jpg','$627.78');
+INSERT INTO QuestProducts VALUES (7, 'Android Smartphone Certified Preowned','4G LTE prepaid 32GB smartphone includes Wi-Fi, GPS and Bluetooth','https://images-na.ssl-images-amazon.com/images/I/81S6qfVnW-L._SL1500_.jpg','$47.95');
+INSERT INTO QuestProducts VALUES (8, 'Jitterbug Flip Cell Phone','Big buttons, simple “Yes” and “No” navigation, a backlit keypad, camera, powerful speaker.','https://images-na.ssl-images-amazon.com/images/I/71ukSZ3p5fL._SL1500_.jpg','$60.76');
+INSERT INTO QuestProducts VALUES (9,'HP OfficeJet Printer','Wireless All-in-One Photo Printer with Mobile Printing, Instant Ink ready.','https://images-na.ssl-images-amazon.com/images/I/71sDg%2By9t4L._SL1500_.jpg','$84.99');
+INSERT INTO QuestProducts VALUES (10, 'Canon Laser Printer','Print, scan, copy and fax capabilities, speeds of up to 28 pages per minute.','https://images-na.ssl-images-amazon.com/images/I/51LsIu6zMPL._SY355_.jpg','$159.99');
+INSERT INTO QuestProducts VALUES (11, 'Samsung HD Smart LED TV','65-Inch 4K Ultra HD Smart LED TV (2017 Model)','https://images-na.ssl-images-amazon.com/images/I/616%2BK6M825L._SL1000_.jpg','879.00');
+INSERT INTO QuestProducts VALUES (12, 'Sceptre LED HDTV, 40"','True Black (2017 Model), 1080P resolution, 3 HDMI ports.','https://images-na.ssl-images-amazon.com/images/I/71o6E6A4-1L._SL1080_.jpg','229.95');
+INSERT INTO QuestProducts VALUES (13, '','','https://images-na.ssl-images-amazon.com/images/I/614CIL31pML._SL1000_.jpg','129.00');
+INSERT INTO QuestProducts VALUES (14, '','','https://images-na.ssl-images-amazon.com/images/I/814brDKfU9L._SL1500_.jpg','21.59');
+INSERT INTO QuestProducts VALUES (15, '','','https://images-na.ssl-images-amazon.com/images/I/61JSLgWnj1L._SL1000_.jpg','198.00');
+INSERT INTO QuestProducts VALUES (16, '','','https://images-na.ssl-images-amazon.com/images/I/71LjQpIzpdL._SL1500_.jpg','18999.99');
+INSERT INTO QuestProducts VALUES (17, '','','https://images-na.ssl-images-amazon.com/images/I/6188bLRU64L._SL1000_.jpg','229.00');
+INSERT INTO QuestProducts VALUES (18, '','','https://images-na.ssl-images-amazon.com/images/I/81APjlVpgbL._SL1500_.jpg','68.00');
+INSERT INTO QuestProducts VALUES (19, '','','https://images-na.ssl-images-amazon.com/images/I/61p1oDWAPUL._SL1200_.jpg','25.99');
+INSERT INTO QuestProducts VALUES (20, '','','https://images-na.ssl-images-https://www.amazon.com/Headphones-TaoTronics-Sweatproof-Lightweight-Cancelling/dp/B074QKS8RK/ref=lp_12097478011_1_7?s=aht&ie=UTF8&qid=1519190124&sr=1-7amazon.com/images/I/51ru85hMQTL._SL1000_.jpg','25.99');
+INSERT INTO QuestProducts VALUES (21, '','','https://images-na.ssl-images-amazon.com/images/I/71gI-IUNUkL._SL1500_.jpg','1.58');
+INSERT INTO QuestProducts VALUES (22, '','','https://images-na.ssl-images-amazon.com/images/I/8143FLAy6GL._SL1500_.jpg','2.89');
+INSERT INTO QuestProducts VALUES (23, '','','https://images-na.ssl-images-amazon.com/images/I/71785Jrt80L._SL1483_.jpg','0.81');
+INSERT INTO QuestProducts VALUES (24, '','','https://images-na.ssl-images-amazon.com/images/I/61ChHUPtpSL._SY550_.jpg','7.49');
+INSERT INTO QuestProducts VALUES (25, '','','https://images-na.ssl-images-amazon.com/images/I/71t9Hf2OZ0L._SL1500_.jpg','0.77');
+INSERT INTO QuestProducts VALUES (26, '','','https://images-na.ssl-images-amazon.com/images/I/71fNVf0v7XL._SY355_.jpg','5.29');
+INSERT INTO QuestProducts VALUES (27, '','','https://images-na.ssl-images-amazon.com/images/I/51E2FAGf7KL._SX355_.jpg','5.99');
+INSERT INTO QuestProducts VALUES (28, '','','https://images-na.ssl-images-amazon.com/images/I/511YqwgiqAL._SY606_.jpg','5.49');
+INSERT INTO QuestProducts VALUES (29, '','','https://images-na.ssl-images-amazon.com/images/I/7173165oQfL._SY355_.jpg','3.99');
+INSERT INTO QuestProducts VALUES (30, '','','https://images-na.ssl-images-amazon.com/images/I/41YOKhMdaML.jpg','2.99');
+INSERT INTO QuestProducts VALUES (31, '','','https://images-na.ssl-images-amazon.com/images/I/81SFcqj07fL._SL1500_.jpg','6.99');
+INSERT INTO QuestProducts VALUES (32, '','','https://images-na.ssl-images-amazon.com/images/I/71oFOpFwoOL._SX355SX355_SY310_CR,0,0,355,310_PIbundle-2,TopRight,0,0_SX355_SY310_CR,0,0,355,310_SH20_.jpg','6.15');
+INSERT INTO QuestProducts VALUES (33, '','','https://images-na.ssl-images-amazon.com/images/I/A10xeRw%2BjoL._SL1500_.jpg','27.94');
+INSERT INTO QuestProducts VALUES (34, '','','https://images-na.ssl-images-amazon.com/images/I/919YVLtjkUL._SL1500_.jpg','8.95');
+INSERT INTO QuestProducts VALUES (35, '','','https://images-na.ssl-images-amazon.com/images/I/41AR8MCuPFL.jpg','1.86');
+INSERT INTO QuestProducts VALUES (36, '','','https://images-na.ssl-images-amazon.com/images/I/8179-MW30AL._SL1500_.jpg','51.13');
+INSERT INTO QuestProducts VALUES (37, '','','https://images-na.ssl-images-amazon.com/images/I/91xISeCtFXL._SL1500_.jpg','52.99');
+INSERT INTO QuestProducts VALUES (38, '','','https://images-na.ssl-images-amazon.com/images/I/41fqm2pQu%2BL.jpg','29.50');
+INSERT INTO QuestProducts VALUES (39, '','','https://images-na.ssl-images-amazon.com/images/I/81RtnK8pjzL._SL1500_.jpg','18.59');
+INSERT INTO QuestProducts VALUES (40, '','','https://images-na.ssl-images-amazon.com/images/I/71XucRWzZzL._SL1500_.jpg','24.33');
+INSERT INTO QuestProducts VALUES (41, '','','https://images-na.ssl-images-amazon.com/images/I/61Rmo6TPAjL._SL1500_.jpg','31.99');
+INSERT INTO QuestProducts VALUES (42, '','','https://images-na.ssl-images-amazon.com/images/I/61HsUOmapNL._SL1000_.jpg','47.99');
+INSERT INTO QuestProducts VALUES (43, '','','https://images-na.ssl-images-amazon.com/images/I/814Im3nyRlL._SY355_.jpg','193.03');
+INSERT INTO QuestProducts VALUES (44, '','','https://images-na.ssl-images-amazon.com/images/I/61NX-mFzbSL._SL1000_.jpg','139.99');
+INSERT INTO QuestProducts VALUES (45, '','','https://images-na.ssl-images-amazon.com/images/I/712qHTZeB7L._SL1500_.jpg','449.00');
+INSERT INTO QuestProducts VALUES (46, '','','https://images-na.ssl-images-amazon.com/images/I/81bugFOwI-L._SL1500_.jpg','199.99');
+INSERT INTO QuestProducts VALUES (47, '','','https://images-na.ssl-images-amazon.com/images/I/71cdbKT1MiL._UY445_.jpg','14.99');
+INSERT INTO QuestProducts VALUES (48, '','','https://images-na.ssl-images-amazon.com/images/I/71yb3Aa2vyL._UX342_.jpg','19.99');
+INSERT INTO QuestProducts VALUES (49, '','','https://images-na.ssl-images-amazon.com/images/I/910SiUesEyL._UX500_.jpg','40.62');
+INSERT INTO QuestProducts VALUES (50, '','','https://images-na.ssl-images-amazon.com/images/I/61QZFd4fH9L._UY395_.jpg','69.90');
+INSERT INTO QuestProducts VALUES (51, '','','https://images-na.ssl-images-amazon.com/images/I/91d4A%2BoK5xL._UX342_.jpg','99.00');
+
 
 
 /*
