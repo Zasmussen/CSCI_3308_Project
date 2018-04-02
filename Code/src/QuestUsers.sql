@@ -1,7 +1,7 @@
 DROP TABLE   QuestUsers  ;
  CREATE TABLE   QuestUsers
    (
-   userID   int   NOT NULL,
+   userID int(11) NOT NULL AUTO_INCREMENT,	   
    UserName    varchar(40)    NOT NULL,
    Email    varchar(200)    NOT NULL,
    Password    varchar(40)    NOT NULL,
