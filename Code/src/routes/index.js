@@ -40,7 +40,7 @@ connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username
 			if (err)
 				throw err
 			var score = result[0].Score
-			res.send('Welcome ' + req.body.username + '! Your current score is ' + score)
+			res.render('success',{message: 'Welcome ' + req.body.username + '! Your current score is ' + score})
 		});
       	}
       else{
@@ -55,6 +55,9 @@ connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username
 
 })
 
+app.get('/play', function(req, res) {
+ res.render('play.ejs')
+})
 
 
 module.exports = app;
