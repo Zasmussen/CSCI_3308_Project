@@ -1,1 +1,1 @@
-This folder will hold source files for the project
+ADDED app.js, config.js, routes/index.js
