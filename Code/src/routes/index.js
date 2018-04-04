@@ -31,22 +31,18 @@ app.post('/login', function(req,res) {
 
 connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username, function (error, results, fields) {
   if (error) {
-    res.send({
-      "code":400,
-      "failed":"error ocurred"
-    })
+    res.send("Error ocurred")
   }else{
-    // console.log('The solution is: ', results);
     if(results.length >0){
       if(results[0].Password == req.body.password){
-        res.send('Welcome ' + req.query['username'] + '! Your current score is XXX.');
+        res.send('Welcome ' + req.body.username + '! Your current score is XXX.');
       }
       else{
-        res.send("Email and password does not match");
+        res.send("Username and password do not match");
       }
     }
     else{
-      res.send("Email does not exits");
+      res.send("Username does not exits");
     }
   }
   });

@@ -1,1 +1,3 @@
-ADDED app.js, config.js, routes/index.js
+In terminal, run "node app.js"
+In another terminal window, run mysql and "use CostQuest"
+In chrome, run "localhost:4000/login"
