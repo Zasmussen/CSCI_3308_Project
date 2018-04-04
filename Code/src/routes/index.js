@@ -35,8 +35,14 @@ connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username
   }else{
     if(results.length >0){
       if(results[0].Password == req.body.password){
-        res.send('Welcome ' + req.body.username + '! Your current score is XXX.');
-      }
+        connection.query('SELECT Score FROM QuestScores INNER JOIN QuestUsers ON QuestUsers.UserID = QuestScores.UserID WHERE QuestUsers.UserName = ?',req.body.username, 
+		function (err, result) {
+			if (err)
+				throw err
+			var score = result[0].Score
+			res.send('Welcome ' + req.body.username + '! Your current score is ' + score)
+		});
+      	}
       else{
         res.send("Username and password do not match");
       }
