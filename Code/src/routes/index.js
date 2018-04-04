@@ -14,8 +14,8 @@ if(!err) {
 }
 });
 var app = express()
-app.get('/', function(req, res) {
- res.render('index', {title: 'CostQuest Login Page'})
+app.get('/login', function(req, res) {
+ res.render('login', {title: 'CostQuest Login Page'})
  // Title is the custom title which you pass to be added in the header layout
 })
 /**
@@ -27,12 +27,29 @@ app.get('/', function(req, res) {
  * when this file is required in another module like app.js
  */
 
-app.get('/login', function(req,res) {
-	res.send('Welcome ' + req.query['username'] + '! Your current score is XXX.');
-// want to query QuestUsers database to make sure username and password exist.
-// If they do, want to res.send('Welcome ' req.query['username']) and say something about current score from QuestScore mysql table
-// If they don't exist, wnat to do res.send('invalid login creditials. try again') and return to login page
+app.post('/login', function(req,res) {
 
+connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username, function (error, results, fields) {
+  if (error) {
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+    })
+  }else{
+    // console.log('The solution is: ', results);
+    if(results.length >0){
+      if(results[0].Password == req.body.password){
+        res.send('Welcome ' + req.query['username'] + '! Your current score is XXX.');
+      }
+      else{
+        res.send("Email and password does not match");
+      }
+    }
+    else{
+      res.send("Email does not exits");
+    }
+  }
+  });
 
 })
 
