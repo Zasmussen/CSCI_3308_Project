@@ -7,7 +7,7 @@ var abs = require('math-abs');
 var connection = mysql.createConnection({
 	host     : 'localhost',
  	user     : 'root',
-	password : 'hockey1997',
+	password : '',
 	database : 'Cost_Quest'
 });
 connection.connect(function(err){
