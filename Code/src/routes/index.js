@@ -4,11 +4,12 @@ var crypto = require('crypto'),
 		format = require('biguint-format');
 var rn = require('random-number');
 var abs = require('math-abs');
+var config = require('../config')
 var connection = mysql.createConnection({
-	host     : 'localhost',
- 	user     : 'root',
-	password : '',
-	database : 'Cost_Quest'
+	host     : config.database.host,
+ 	user     : config.database.user,
+	password : config.database.password,
+	database : config.database.db
 });
 connection.connect(function(err){
 if(!err) {
