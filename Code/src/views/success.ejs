@@ -1,15 +1,40 @@
-<html>
+<!-- <html>
 <head>
 <title>Welcome</title>
 </head>
 <body>
 <div>
 	<p> <%=message%> </p>
-<!--	<a> href="/play"> Click here to play CostQuest </a>	-->
+
 	<form action="/play" method="get">
 		<button type="submit">Click here to play CostQuest</button>
 	</form>
 </div>
 </body>
 </html>
+ -->
 
+<html>
+<head>
+ 	<span style="font-size:18px;"> </span><span style="font-size:24px;"><meta http-equiv="refresh" content="3;URL=index.html"> </span>
+ <title>Login Form Design</title>
+     <link rel="stylesheet" type="text/css" href="/success.css">
+<body>
+     <div class="box">
+     <img src="https://png.pngtree.com/element_origin_min_pic/16/11/26/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
+         <div style="display: table; height: 400px; overflow: hidden;">
+     <div style="display: table-cell; vertical-align: middle;">
+       <div
+         <h1><%=message%></h1>
+				 <form action="/play" method="get">
+           <input type="hidden" name="username" value="<%= username%>">
+					 <input type="submit" value="Play CostQuest">
+				 </form>
+       </div>
+     </div>
+   </div>
+     </div>
+
+</body>
+</head>
+</html>

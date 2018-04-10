@@ -69,7 +69,7 @@ color: #fff;
 font-size: 16px;
 }
 
-.box input[type="button"]
+.box input[type="submit"]
 {
 border: none;
 outline: none;
@@ -80,11 +80,9 @@ font-size: 18px;
 border-radius: 20px;
 }
 
-.box input[type="button"]:hover
+.box input[type="submit"]:hover
 {
 cursor: pointer;
 background: #ffc107;
 color: #000;
 }
-
-

@@ -107,3 +107,5 @@ app.listen(serverPort, function(){
  console.log('Server running at port ' + serverPort + ': http://' + hostName + ': '
 + serverPort)
 })
+
+app.use(express.static('HTML'));
