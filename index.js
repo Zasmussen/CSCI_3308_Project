@@ -1,4 +1,3 @@
-const { Pool } = require('pg');
 var express = require('express');
 var mysql = require('mysql');
 var crypto = require('crypto'),
@@ -6,18 +5,17 @@ var crypto = require('crypto'),
 var rn = require('random-number');
 var abs = require('math-abs');
 var config = require('../config');
-
-const connection = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: false
+var connection = mysql.createConnection({
+	host     : config.database.host,
+ 	user     : config.database.user,
+	password : config.database.password,
+	database : config.database.db
 });
-
 connection.connect(function(err){
 if(!err) {
     console.log("Database is connected ... nn");
 } else {
-    console.log("Error connecting the database ... nn");
-    console.log(err);
+    console.log("Error connecting database ... nn");
 }
 });
 var app = express()
