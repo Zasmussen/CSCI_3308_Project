@@ -103,9 +103,9 @@ app.use('/', index)
 //app.use('/store', store)
 var hostName = config.server.host;
 var serverPort = config.server.port;
-app.listen(serverPort, function(){
- console.log('Server running at port ' + serverPort + ': http://' + hostName + ': '
-+ serverPort)
+app.listen(process.env.PORT, function(){
+ console.log('Server running at port ' + process.env.PORT + ': http://' + hostName + ': '
++ process.env.PORT)
 })
 
 app.use(express.static('HTML'));
