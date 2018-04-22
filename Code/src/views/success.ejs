@@ -24,11 +24,12 @@
      <img src="https://png.pngtree.com/element_origin_min_pic/16/11/26/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
          <div style="display: table; height: 400px; overflow: hidden;">
      <div style="display: table-cell; vertical-align: middle;">
-       <div
+       <div style="text-align: center"
          <h1><%=message%></h1>
 				 <form action="/play" method="get">
            <input type="hidden" name="username" value="<%= username%>">
-					 <input type="submit" value="Play CostQuest">
+           <input type="hidden" name="score" value="<%= score%>">
+           <input type="submit" value="Play CostQuest">
 				 </form>
        </div>
      </div>

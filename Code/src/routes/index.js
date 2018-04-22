@@ -21,11 +21,11 @@ if(!err) {
 var app = express()
 
 app.get('/',function(req,res){
-	res.render('login.ejs', {title: 'CostQuest Login Page'} );
+	res.render('login.ejs', {title: 'CostQuest Login Page',message:''} );
 });
 
 app.get('/login', function(req, res) {
- res.render('login', {title: 'CostQuest Login Page'})
+ res.render('login', {title: 'CostQuest Login Page',message:''})
  // Title is the custom title which you pass to be added in the header layout
 })
 /**
@@ -45,17 +45,17 @@ connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username
   }else{
     if(results.length >0){
       if(results[0].Password == req.body.password){
-				global.currentUser = req.body.username;
         connection.query('SELECT Score FROM QuestScores INNER JOIN QuestUsers ON QuestUsers.UserID = QuestScores.UserID WHERE QuestUsers.UserName = ?',req.body.username,
 		function (err, result) {
 			if (err)
 				throw err
 			var score = result[0].Score
-			res.render('success',{message: 'Welcome ' + req.body.username + '! Your current score is ' + score, username: req.body.username})
+			res.render('success',{message: 'Welcome ' + req.body.username + '! Your current accuracy is ' + score +'%', username: req.body.username, score:score})
 		});
       	}
       else{
-        res.send("Username and password do not match");
+				res.render('login',{message: 'Username and password do not match'});
+        //res.send("Username and password do not match");
       }
     }
     else{
@@ -72,16 +72,20 @@ app.get('/play', function(req, res) {
 	, max: 51
 	, integer: true
 	}
+	var username = req.sanitize('username').escape().trim();
+	var score = req.sanitize('score').escape().trim();
 	var id = rn(options);
 	connection.query('SELECT * FROM QuestProducts WHERE productID = ?',id,function(err,result)
 	{
 
-		res.render('play',{username: req.body.username,
+		res.render('play',{username: username,
+											score: score,
 											id: id,
 											name: result[0].ProductName,
 											desc: result[0].Description,
 											url: result[0].ImageURL,
-											price: result[0].DollarPrice})
+											price: result[0].DollarPrice,
+											message:''})
 	});
 
 
@@ -94,17 +98,34 @@ app.post('/play', function(req,res) {
 	 description: req.sanitize('desc').escape().trim(),
 	 price: req.sanitize('price').escape().trim(),
 	 gPrice: req.sanitize('guessedPrice').escape().trim(),
-	 username: req.sanitize('username').escape().trim()
+	 username: req.sanitize('username').escape().trim(),
+	 score: req.sanitize('score').escape().trim()
  }
+ connection.query('UPDATE QuestScores SET games = games + 1 WHERE userID = (SELECT userID from QuestUsers WHERE UserName = "' + item.username + '")');
  item.price = item.price.replace('$','');
- var diff = item.price - item.gPrice;
-	diff = abs(diff);
- connection.query('SELECT Score FROM QuestScores INNER JOIN QuestUsers ON QuestUsers.UserID = QuestScores.UserID WHERE QuestUsers.UserName = ?',global.currentUser,
-	function (err, result) {
-		if(diff < result[0].Score)
+ var guess = item.price - item.gPrice;
+ if(guess==0)
+ {
+	 guess = 100;
+ }
+ else
+ {
+ 	guess = 100-((abs(guess)/item.price)*100);
+ }
+ connection.query('SELECT Score,games FROM QuestScores INNER JOIN QuestUsers ON QuestUsers.UserID = QuestScores.UserID WHERE QuestUsers.UserName = ?',item.username,
+	function (err, result)
+	{
+		if(result[0].games==1)
 		{
-			connection.query('UPDATE QuestScores SET Score = ' + diff + ' WHERE userID = (SELECT userID from QuestUsers WHERE UserName = "' + global.currentUser + '")');
+			var score = guess;
+			item.score = score;
 		}
+		else if(result[0].games>1)
+		{
+			var score = ((result[0].Score*(result[0].games-1))+guess)/result[0].games;
+			item.score = score;
+		}
+		connection.query('UPDATE QuestScores SET Score = ' + score + ' WHERE userID = (SELECT userID from QuestUsers WHERE UserName = "' + item.username + '")');
 	})
 	var options = {
 		min: 1
@@ -113,13 +134,82 @@ app.post('/play', function(req,res) {
 	}
 	var id = rn(options);
 	connection.query('SELECT * FROM QuestProducts WHERE productID = ?',id,function(err,result)
-	{
-		res.render('play',{username: req.body.username,
+	{	if(item.gPrice > item.price)
+		{
+		res.render('play',{username: item.username,
+											score: item.score,
 											id: id,
 											name: result[0].ProductName,
 											desc: result[0].Description,
 											url: result[0].ImageURL,
-											price: result[0].DollarPrice})
+											price: result[0].DollarPrice,
+											message: 'Too High!'})
+			}
+			else if(item.gPrice < item.price)
+			{
+				res.render('play',{username: item.username,
+													score: item.score,
+													id: id,
+													name: result[0].ProductName,
+													desc: result[0].Description,
+													url: result[0].ImageURL,
+													price: result[0].DollarPrice,
+													message: 'Too Low!'})
+			}
+			else
+			{
+				res.render('play',{username: item.username,
+													score: item.score,
+													id: id,
+													name: result[0].ProductName,
+													desc: result[0].Description,
+													url: result[0].ImageURL,
+													price: result[0].DollarPrice,
+													message: 'Perfect!'})
+			}
+	});
+})
+
+
+app.get('/signup', function(req,res)
+{
+	res.render('signup',{message: 'Input Fields'});
+})
+
+app.post('/signup', function(req,res)
+{
+
+
+	connection.query('SELECT UserName from QuestUsers WHERE UserName = "' + req.body.username + '"',function(err,result)
+	{
+		if(result[0])
+		{
+			var id1=1;
+			connection.query('SELECT MAX(userID) AS id from QuestUsers',
+				function(err,result)
+				{
+					id1 = result[0].userID;
+					console.log(result[0].id);
+				});
+			console.log(id1);
+			res.render('signup',{message: 'Username Taken!'})
+		}
+		else if(req.body.password != req.body.password2)
+		{
+			res.render('signup',{message: 'Passwords Do Not Match!'})
+		}
+		else
+		{
+			connection.query('SELECT MAX(userID) AS id from QuestUsers',
+				function(err,result)
+				{
+					var maxID;
+					maxID =result[0].id+1;
+					connection.query('INSERT INTO QuestUsers (UserName,Password,Email,userID) VALUES("' + req.body.username + '","'+req.body.password+'","",'+maxID+')');
+					connection.query('INSERT INTO QuestScores (Score,games,userID) VALUES(0,0,'+maxID+')');
+				});
+			res.render('success',{message: 'Welcome ' + req.body.username + '! Your current accuracy is ' + 0 +'%', username: req.body.username, score:0})
+		}
 	});
 })
 

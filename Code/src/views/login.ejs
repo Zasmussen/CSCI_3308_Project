@@ -1,22 +1,3 @@
-<!-- <html>
-<head>
-<title><%= title %></title>
-</head>
-<body>
-<div class="box">
-         <h1><%= title%></h1>
-         <form method="post" action="/login">
-             <p>Username</p>
-             <input type="text"  name="username" placeholder="Enter Your Username">
-             <p>Password</p>
-             <input type="password"  name="password" placeholder="Enter Your Password">
-             <p></p><p></p>
-	     <input type="submit" name="" placeholder="Login">
-         </form>
-     </div>
-</body>
-</html>
- -->
 
 <html>
 <head>
@@ -36,19 +17,15 @@
              <input type="text"  name="username" placeholder="Enter Username">
              <p>Password</p>
              <input type="password"  name="password" placeholder="Enter Password">
-
-
              <input type="submit" name = "" value="Login" id="log">
-
-             <a href="sign.html">
-                <input type="submit" value="Sign in" id="sign">
-             </a>
-              <a href="#">Lost your password?</a><br>
+        </form>
+        <form method = "get" action="/signup">
+            <input type="submit" value="Sign Up" id="sign">
+              <!-- <a href="#">Lost your password?</a><br>
              <a href="reset.html">Reset your password</a><br>
-             <a href="con.html">Contributor Name</a><br>
-
+             <a href="con.html">Contributor Name</a><br> -->
          </form>
-
+         <div style="text-align:center"><strong> <%=message%> </strong></div>
      </div>
 
 </body>
