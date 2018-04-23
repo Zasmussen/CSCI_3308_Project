@@ -1,2 +1,3 @@
-# CSCI_3308_Project
-Repository for CSCI 3308 Software Development Methods and Tools semester project. Group members; Zachary Asmussen, Rebekah Haysley, Haotian Zheng, Theodore Margoles, Jorge Pulido Lopez, and Binpeng Wu.
+In terminal, run "node app.js"
+In another terminal window, run mysql and "use CostQuest"
+In chrome, run "localhost:4000/login"
