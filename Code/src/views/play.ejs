@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="play.css">
+    
+    </head>
+    <body>
+    <div id="main-box" class="container-fluid rounded ">
+        <div class="text-center"><h1 style="font-size: 4vh"><%=name%></h1></div>
+        <div class="w-100 container-fluid" id="photo-frame"><table style="height: 100%">
+             <div class="row justify-content-center" style="height: 100%"><img id="photo" class="align-middle" src="<%= url%>"/></div></table>
+        </div>
+        <form method="post" action = "/play">
+            <div style="text-align: center">
+                <p><strong><%=desc%></strong></p>
+
+                 <p>Guess how much it will cost?</p>
+
+                 <input type="text"  name="guessedPrice" placeholder="Enter the price " >
+                 <input type="hidden" name="id" value="<%= id%>">
+                 <input type="hidden" name="name" value="<%= name%>">
+                 <input type="hidden" name="desc" value="<%= desc%>">
+                 <input type="hidden" name="price" value="<%= price%>">
+                 <input type="hidden" name="username" value="<%= username%>">
+                 <input type="hidden" name="score" value="<%= score%>">
+                 <input type="submit" value="Submit" id="sign">
+                 <p><%=username%> your current accuracy is: <%= Number(score).toFixed(2)%>% price: <%=price%></p>
+                 
+            </div>
+        </form>
+    </div>  
+    <p style="color: black"><%=message%><p>
+</html>

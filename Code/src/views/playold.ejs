@@ -1,0 +1,45 @@
+<html>
+<head>
+
+ <title>Cost Quest</title>
+     <link rel="stylesheet" type="text/css" href="/HC.css">
+<body>
+
+     <div class="box">
+     <br>
+ </br>
+          <h1><%=name%></h1>
+         <br>
+         </br>
+
+         <div class="picture_div" style="margin:0px auto; text-align:center;">
+     <img src="<%= url%>" width=380 height=200/>
+     </div>
+         <br>
+
+         </br>
+         <tr>
+         </tr>
+
+         <form method="post" action = "/play">
+            <div style="text-align: center">
+             <p><strong><%=desc%></strong></p>
+
+             <p>Guess how much it will cost?</p>
+
+             <input type="text"  name="guessedPrice" placeholder="Enter the price " >
+             <input type="hidden" name="id" value="<%= id%>">
+             <input type="hidden" name="name" value="<%= name%>">
+             <input type="hidden" name="desc" value="<%= desc%>">
+             <input type="hidden" name="price" value="<%= price%>">
+             <input type="hidden" name="username" value="<%= username%>">
+             <input type="hidden" name="score" value="<%= score%>">
+             <input type="submit" value="Submit" id="sign">
+             <p><%=username%> your current accuracy is: <%= Number(score).toFixed(2)%>% price: <%=price%></p>
+             <p><%=message%><p>
+            </div>
+         </form>
+
+     </div>
+
+</body>
