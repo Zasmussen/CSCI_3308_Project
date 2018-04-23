@@ -65,7 +65,7 @@ connection.query('SELECT * FROM QuestUsers WHERE UserName = ?',req.body.username
   });
 
 })
-
+var items = [];
 app.get('/play', function(req, res) {
 	var options = {
 		min: 1
@@ -75,6 +75,7 @@ app.get('/play', function(req, res) {
 	var username = req.sanitize('username').escape().trim();
 	var score = req.sanitize('score').escape().trim();
 	var id = rn(options);
+	items.push(id);
 	connection.query('SELECT * FROM QuestProducts WHERE productID = ?',id,function(err,result)
 	{
 
@@ -85,6 +86,7 @@ app.get('/play', function(req, res) {
 											desc: result[0].Description,
 											url: result[0].ImageURL,
 											price: result[0].DollarPrice,
+											//items: items,
 											message:''})
 	});
 
@@ -99,8 +101,25 @@ app.post('/play', function(req,res) {
 	 price: req.sanitize('price').escape().trim(),
 	 gPrice: req.sanitize('guessedPrice').escape().trim(),
 	 username: req.sanitize('username').escape().trim(),
-	 score: req.sanitize('score').escape().trim()
+	 //items: req.sanitize('items').escape().trim(),
+	 score: req.sanitize('score').escape().trim(),
  }
+ if(isNaN(item.gPrice))
+ {
+	 connection.query('SELECT * FROM QuestProducts WHERE productID = ?',item.id,function(err,result)
+	 {
+	 	 res.render('play',{username: item.username,
+	 									score: item.score,
+	 									id: item.id,
+	 									name: result[0].ProductName,
+	 									desc: result[0].Description,
+	 									url: result[0].ImageURL,
+	 									price: result[0].DollarPrice,
+	 									//items: item.items,
+	 									message: 'Must be a number!'})
+									});
+		}
+	else{
  connection.query('UPDATE QuestScores SET games = games + 1 WHERE userID = (SELECT userID from QuestUsers WHERE UserName = "' + item.username + '")');
  item.price = item.price.replace('$','');
  var guess = item.price - item.gPrice;
@@ -132,7 +151,21 @@ app.post('/play', function(req,res) {
 	, max: 51
 	, integer: true
 	}
-	var id = rn(options);
+	var taken = 1;
+	var id;
+	while(taken)
+	{
+		id = rn(options);
+		taken = 0;
+		for(i=0;i<items.length;i++)
+		{
+			if(id == items[i])
+			{
+				taken = 1;
+			}
+		}
+	}
+	items.push(id);
 	connection.query('SELECT * FROM QuestProducts WHERE productID = ?',id,function(err,result)
 	{	if(item.gPrice > item.price)
 		{
@@ -143,6 +176,7 @@ app.post('/play', function(req,res) {
 											desc: result[0].Description,
 											url: result[0].ImageURL,
 											price: result[0].DollarPrice,
+											//items: item.items,
 											message: 'Too High!'})
 			}
 			else if(item.gPrice < item.price)
@@ -154,6 +188,7 @@ app.post('/play', function(req,res) {
 													desc: result[0].Description,
 													url: result[0].ImageURL,
 													price: result[0].DollarPrice,
+													//items: item.items,
 													message: 'Too Low!'})
 			}
 			else
@@ -165,9 +200,11 @@ app.post('/play', function(req,res) {
 													desc: result[0].Description,
 													url: result[0].ImageURL,
 													price: result[0].DollarPrice,
+													//items: item.items,
 													message: 'Perfect!'})
 			}
 	});
+	}
 })
 
 
