@@ -1,3 +1,17 @@
+body {
+
+background: url(https://4vector.com/i/free-vector-fashion-shopping-01-vector_000527_fashion_shopping_01_vector.jpg);
+background-size: cover;
+background-position:center;
+
+
+
+}
+
+p{
+	font-size: 14;
+}
+
 #main-box{
 
 width: 70%;
@@ -17,7 +31,7 @@ overflow-y: scroll;
 #photo-frame{
 
 width:80%;
-height: 70%;
+height: 60%;
 border-color: 0;
 align-content: center;
 
@@ -26,4 +40,13 @@ align-content: center;
 #photo {
 height: 100%;
 max-width: 80%;
+}
+
+.break {
+	height: 2%;
+}
+
+.result_message {
+text-align: center; 
+color: red;
 }
