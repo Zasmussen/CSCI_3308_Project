@@ -112,6 +112,10 @@ app.post('/play', function(req,res) {
  {
  	guess = 100-((abs(guess)/item.price)*100);
  }
+ if(guess < 0)
+ {
+ 	guess = 0;
+ }
  connection.query('SELECT Score,games FROM QuestScores INNER JOIN QuestUsers ON QuestUsers.UserID = QuestScores.UserID WHERE QuestUsers.UserName = ?',item.username,
 	function (err, result)
 	{

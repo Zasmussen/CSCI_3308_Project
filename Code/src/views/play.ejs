@@ -1,5 +1,9 @@
 <html>
     <head>
+     
+     <audio controls autoplay loop>
+ <source src="Music/bgmusic.ogg" type="audio/ogg; codecs=vorbis"/>
+</audio>
     <title>Login Form Design</title>
     <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap-grid.css">
@@ -35,8 +39,12 @@
                 </div>
          </div>
          <p>
-         <p><%=username%> your current accuracy is: <%= Number(score).toFixed(2)%>% price: <%=price%></p>
+        <div style="color: red">
+         <p class="text-center"></p>
+        </div>
         </form>       
-    </div>  
-    <p class="text-center" style="color: red"><%=message%><p>
-</ht
+    </div>
+    <div class="col-4 container-fluid rounded"  style="color: red; background-color: white;">  
+    <p class="text-center"><%=message%><p class="text-center"><%=username%>, your current accuracy is: <%= Number(score).toFixed(2)%>%</p></div>
+    </div>
+</html>
