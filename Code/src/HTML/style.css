@@ -1,5 +1,6 @@
 body
 {
+overflow: hidden;
 margin: 0;
 padding: 0;
 background: url(https://4vector.com/i/free-vector-fashion-shopping-01-vector_000527_fashion_shopping_01_vector.jpg);
@@ -10,28 +11,28 @@ font-family: "Times New Roman", Times, serif;
 
 .box
 {
-
-width: 360px;
-height: 520px;
+width: 40vw;
+height: 85vh;
 background: #000;
 position: absolute;
 transform: translate(-50%, -50%);
 box-sizing: border-box;
-padding: 75px 30px;
+padding: 2% 2%;
 color: #fff;
 top: 50%;
 left: 50%;
-
+overflow-y: auto;
 }
 
 .tag
 {
-width: 100px;
-height: 100px;
+width: 10vw;
+height: 10vw;
 border-radius: 50%;
-position: absolute;
-top: -50px;
-left: calc(50% - 50px);
+position: relative;
+top: calc(7vh - 5vw);
+z-index:9999;
+left: calc(50% - 5vw);
 }
 
 h1
@@ -107,4 +108,17 @@ color: darkgrey;
 .box a:hover
 {
 color: #ffc107;
+}
+
+.vertical-align-middle {
+
+position: absolute;
+top: 50%;
+left: 0;
+right: 0;
+margin: 0 auto;
+transform: translateY(-50%);
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+
 }

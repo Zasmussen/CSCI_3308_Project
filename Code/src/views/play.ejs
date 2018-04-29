@@ -16,7 +16,7 @@
             <div class="text-center"><h1 style="font-size: 28"><%=name%></h1></div>
             <div id="break"></div>
             <div class="w-100 container-fluid" id="photo-frame">
-                 <div class="row justify-content-center" style="height: 100%"><img id="photo" class="align-middle" src="<%= url%>"/></div></table>
+                 <div class="row justify-content-center" style="height: 100%"><img id="photo" class="rounded align-middle" src="<%= url%>"/></div></table>
             </div>
             <p>
             <form method="post" action = "/play">
@@ -25,10 +25,10 @@
                     <p>
         </div>
         <div class="row">
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3"><p>Guess how much it will cost?</p></div>
                 <div class="col-5">
-                 <input id="textfield" type="text"  name="guessedPrice" placeholder="Enter the price " >
+                 <input id="textfield" type="text"  name="guessedPrice" placeholder="    $$ " >
                  <input type="hidden" name="id" value="<%= id%>">
                  <input type="hidden" name="name" value="<%= name%>">
                  <input type="hidden" name="desc" value="<%= desc%>">
@@ -39,12 +39,13 @@
                 </div>
          </div>
          <p>
-        <div style="color: red">
-         <p class="text-center"></p>
-        </div>
         </form>       
     </div>
-    <div class="col-4 container-fluid rounded"  style="padding: .5vh;color: red; background-color: white;">  
-    <p class="text-center"><%=message%><p class="text-center"><%=username%>, your current accuracy is: <%= Number(score).toFixed(2)%>%</p></div>
+    <div class="col-5 container-fluid rounded text-danger border-danger" id="alert" >
+   <p class="text-center" id="alert-text"><%=username%>, your current accuracy is: <%= Number(score).toFixed(2)%>%</p>
+    </div>  
+    <br>
+    <p class="text-center" style="text-transform: uppercase; color: #dc3545; font-size:28"> <%=message%></div>
+    <br>
     </div>
 </html>

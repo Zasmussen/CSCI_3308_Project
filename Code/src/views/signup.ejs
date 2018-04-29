@@ -1,25 +1,29 @@
 <html>
 <head>
- <title>Signup Form Design</title>
-     <link rel="stylesheet" type="text/css" href="sign.css">
+<title>Signup Form Design</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap-grid.css">
 <body>
-     <div class="box">
-     <img src="https://png.pngtree.com/element_origin_min_pic/16/11/26/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
-         <h1>Sign Up</h1>
-         <form method="post" action="/signup">
-             <p>Username</p>
-             <input type="text"  name="username" placeholder="Enter Your Username">
-             <p>Password</p>
-             <input type="password"  name="password" placeholder="Enter Your Password">
-             <p>Re-enter Password</p>
-             <input type="password"  name="password2" placeholder="Re-enter Your Password">
-             <input type="submit" value="Submit" id="sign">
-         </form>
-         <div style="text-align: center">
-         <p><%=message%><p>
-         </div>
-     </div>
-
+<img src="Images/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
+    <div class="box">
+            <div style="height: 3.25vw"></div>
+        <h1>Sign Up</h1>
+        <form method="post" action="/signup">
+            <p>Username</p>
+            <input type="text"  name="username" placeholder="Enter Your Username">
+            <p>Password</p>
+            <input type="password"  name="password" placeholder="Enter Your Password">
+            <p>Re-enter Password</p>
+            <input type="password"  name="password2" placeholder="Re-enter Your Password">
+            <input type="submit" value="Submit" id="sign">
+        </form>
+        <div style="text-align: center">
+            <p style="color:  #dc3545"><%=message%><p>
+        </div>
+    </div>
+    
+</div>
 </body>
 </head>
 </html>

@@ -4,8 +4,6 @@ background: url(https://4vector.com/i/free-vector-fashion-shopping-01-vector_000
 background-size: cover;
 background-position:center;
 
-
-
 }
 
 p{
@@ -24,7 +22,7 @@ padding: 1% 1%;
 color: #fff;
 top: 50%;
 left: 50%;
-overflow-y: scroll;
+overflow-y: auto;
 
 }
 
@@ -46,7 +44,22 @@ max-width: 80%;
 	height: 2%;
 }
 
-.result_message {
-text-align: center; 
+#alert { 
+height: 50px;	
 color: red;
+background-color: black;
+border-color: red; 
+border-style: dashed;
+  }
+
+#alert-text {
+font-size-adjust: 100%;
+position: absolute;
+top: 50%;
+left: 0;
+right: 0;
+margin: 0 auto;
+transform: translateY(-50%);
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
 }

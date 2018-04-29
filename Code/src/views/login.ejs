@@ -3,31 +3,30 @@
 <head>
  <title>Login Form Design</title>
      <link rel="stylesheet" type="text/css" href="/style.css">
+     <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Bootstrap/bootstrap-grid.css">
+    
 <body>
-     <div class="box">
-     <img src="https://png.pngtree.com/element_origin_min_pic/16/11/26/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
-        <tr>
-         </tr>
-         <br>
-         <h1>Entering Pricetag</h1>
-         </br>
-
-         <form method ="post" action="/login">
-             <p>Username</p>
-             <input type="text"  name="username" placeholder="Enter Username">
-             <p>Password</p>
-             <input type="password"  name="password" placeholder="Enter Password">
-             <input type="submit" name = "" value="Login" id="log">
-        </form>
-        <form method = "get" action="/signup">
-            <input type="submit" value="Sign Up" id="sign">
-              <!-- <a href="#">Lost your password?</a><br>
-             <a href="reset.html">Reset your password</a><br>
-             <a href="con.html">Contributor Name</a><br> -->
-         </form>
-         <div style="text-align:center"><strong> <%=message%> </strong></div>
-     </div>
-
+<div style="height: 4vw;">
+    <img src="Images/4f53a6134196a91b0c84a78c5fdeb36b.jpg" class="tag">
+    <div class="box ">
+            <div style="height: 3.25vw"></div>    
+            <h1>Cost Quest</h1>
+             <form method ="post" action="/login">
+                 <p>Username</p>
+                 <input type="text"  name="username" placeholder="Enter Username">
+                 <p>Password</p>
+                 <input type="password"  name="password" placeholder="Enter Password">
+                 <input type="submit" name = "" value="Login" id="log">
+            </form>
+            <form method = "get" action="/signup">
+                <input type="submit" value="Sign Up" id="sign">
+             </form>
+            <div style="text-align:center"><strong> <%=message%> </strong></div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 

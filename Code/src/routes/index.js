@@ -177,7 +177,7 @@ app.post('/play', function(req,res) {
 
 app.get('/signup', function(req,res)
 {
-	res.render('signup',{message: 'Input Fields'});
+	res.render('signup',{message: ''});
 })
 
 app.post('/signup', function(req,res)
