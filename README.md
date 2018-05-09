@@ -35,9 +35,9 @@ Because Heroku has limited dynos, sometimes the app crashes and needs you to man
 9. Click “Open app”
 
 # To play the game on local machine:
-1.clone the style branch from our github repo.
-2.update config file to connect to local host and local MySQL connection. 
-3.from the command line run: node app.js
+1. clone the style branch from our github repo.
+2. update config file to connect to local host and local MySQL connection. 
+3. from the command line run: node app.js
 
 
 
