@@ -35,9 +35,15 @@ Because Heroku has limited dynos, sometimes the app crashes and needs you to man
 9. Click “Open app”
 
 # To play the game on local machine:
-1. Clone the style branch from our github repo.
-2. Update config file to connect to local host and local MySQL connection. 
-3. From the command line run: node app.js
+1. Clone the style branch from our github repo: https://github.com/Zasmussen/Cost_Quest.git
+2. Connect to SQL and add database called Cost_Quest, and make sure that you are using this database
+3. Enter the following commands:
+    source QuestProducts.sql
+    source QuestUsers.sql
+    source QuestScores.sql
+4. Update config file to connect to local host and local MySQL connection (and make sure your password is correct)
+5. From the command line run: node app.js
+6. Go to your preferred browser and connect to local host
 
 
 
