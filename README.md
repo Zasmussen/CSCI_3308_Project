@@ -4,10 +4,23 @@ Repository for CSCI 3308 Software Development Methods and Tools semester project
 # Project Name = Cost Quest
 This project is a web game, hosted on heroku, that allows users to sign up for an account, then play a fun game of guessing prices of everyday electronics, gadgets, groceries and other items! Enjoy!
 
-# Heroku deployment 
+# GitHub structure: 
+All Milestones are in the "master" branch.
+The "README.md" is in the "master" branch and the "style" branch.
+The final submission code is in the "style" branch.
+The test cases are in the "test" branch.
+
+# To play the game via heroku:
+1. Click the link below described as heroku deployment link
+2. Sign in with account with username=TA and password=ta1 (premade account with 0% accuracy, 0 guesses in the database)
+3. Play the game, listen to or mute music, watch accuracy improve / get worse
+4. Exit out of the game
+5. Re-open heroku link, login, see accuracy you had built up
+
+# Heroku deployment: 
 Heroku deployment link: https://secure-reaches-29983.herokuapp.com/
 
-# Troubleshooting: 
+# Troubleshooting heroku: 
 Because Heroku has limited dynos, sometimes the app crashes and needs you to manually restart it. This is done by: 
 1. Go to https://id.heroku.com/login
 2. Login using the following account info:
@@ -21,11 +34,9 @@ Because Heroku has limited dynos, sometimes the app crashes and needs you to man
 8. Wait a few seconds
 9. Click “Open app”
 
-# To play the game:
-1. Click the link above described as heroku link
-2. Sign in with account with username=TA and password=ta1 (premade account with 0% accuracy, 0 guesses in the database)
-3. Play the game, listen to or mute music, watch accuracy improve / get worse
-4. Exit out of the game
-5. Re-open heroku link, login, see accuracy you had built up
+# To play the game on local machine:
+
+
+
 
 
