@@ -5,9 +5,9 @@ Repository for CSCI 3308 Software Development Methods and Tools semester project
 This project is a web game, hosted on heroku, that allows users to sign up for an account, then play a fun game of guessing prices of everyday electronics, gadgets, groceries and other items! Enjoy!
 
 # GitHub structure: 
-All Milestones are in the "master" branch.
+The final submission project code is in the "style" branch.
+All Milestones are in the "master" branch and "style".
 The "README.md" is in the "master" branch and the "style" branch.
-The final submission code is in the "style" branch.
 The test cases can be found in Milestone 5 documentation.
 
 # To play the game via heroku:
