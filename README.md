@@ -8,7 +8,7 @@ This project is a web game, hosted on heroku, that allows users to sign up for a
 All Milestones are in the "master" branch.
 The "README.md" is in the "master" branch and the "style" branch.
 The final submission code is in the "style" branch.
-The test cases are in the "test" branch.
+The test cases can be found in Milestone 5 documentation.
 
 # To play the game via heroku:
 1. Click the link below described as heroku deployment link
